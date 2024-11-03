@@ -11,10 +11,10 @@ setwd("./data")
 data <- read.table("SparrowSize.txt", header = TRUE)
 
 # Add a 'Group' column to the data showing if the year is less than 2005
-data$Group <- ifelse(data$Year < 2005, "Before 2005", "After 2005")
+data$Group <- ifelse(data$Year < 2005, "2001-2004", "2005-2011")
 
 # Summarize the means by group
-data %>%
+groupedMeans <- data %>%
   group_by(Group) %>%
   summarise(
     meanTarsus = format(mean(Tarsus, na.rm = TRUE), nsmall = 4),
@@ -23,3 +23,5 @@ data %>%
     meanMass = format(mean(Mass, na.rm = TRUE), nsmall = 4)
   )
 
+# Print the results
+print(groupedMeans)
