@@ -8,7 +8,7 @@ library(dplyr)
 
 # Load the data
 setwd("./data")
-data <- read.table("SparrowSize.txt", header = TRUE)
+data <- read.table("data1.txt", header = TRUE)
 
 # Add a 'Group' column to the data showing if the year is less than 2005
 data$Group <- ifelse(data$Year < 2005, "2001-2004", "2005-2011")
