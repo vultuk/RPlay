@@ -1,0 +1,7 @@
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("tidyr")
+install.packages("lubridate")
+install.packages("broom")
+install.packages("plotrix")
+install.packages("ggfortify")
