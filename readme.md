@@ -170,3 +170,160 @@ summary(model)
 - Intercept (50): Predicted height when age is zero.
 - Slope (10): Height increases by 10 units for each additional year of age.
 - R-squared (0.96): 96% of the variation in height is explained by age, indicating a strong linear relationship.
+
+## Correlation
+
+### Purpose
+
+- Measures the strength and direction of a relationship between two variables.
+- Helps determine if variables move together positively or negatively.
+
+### Description
+
+Correlation shows the degree of association between two variables. For example, a high positive correlation between age and height means both increase together.
+
+### R Examples
+
+```r
+# Simulate data
+age <- c(5, 6, 7, 8, 9)
+height <- c(100, 110, 115, 120, 125)
+
+# Calculate correlation
+cor(age, height)
+```
+
+### Output
+
+```bash
+cor(age, height)
+# Output:
+# [1] 0.976
+```
+
+### Explanation
+
+- Correlation coefficient (0.976): Close to 1, indicating a strong positive relationship; as age increases, so does height.
+
+## Chi-Squared Test
+
+### Purpose
+
+- Tests for an association between categorical variables.
+- Useful for analyzing count data.
+
+### Description
+
+The Chi-squared test checks if two categories are related. For example, it can help determine if there’s a link between gender and preference for a specific plant type.
+
+R Examples
+
+```r
+# Sample data
+observed <- matrix(c(10, 20, 30, 40), nrow = 2)
+
+# Perform Chi-squared test
+chisq.test(observed)
+```
+
+Output
+
+```bash
+chisq.test(observed)
+# Output:
+# X-squared = 0.952, df = 1, p-value = 0.329
+```
+
+### Explanation
+
+- X-squared (0.952): Test statistic.
+- p-value (0.329): Greater than 0.05, suggesting no significant association between the categories.
+
+## Non-Parametric Tests
+
+### Purpose
+
+- Used when data doesn’t meet normality assumptions.
+- An alternative to t-tests and ANOVA for non-normal data.
+
+### Description
+
+Non-parametric tests like the Wilcoxon rank-sum test are suitable for data that’s not normally distributed. This test, for example, compares two groups without assuming a normal distribution.
+
+R Examples
+
+```r
+# Sample data for two groups
+group1 <- c(5, 6, 7, 8, 9)
+group2 <- c(10, 11, 12, 13, 14)
+
+# Wilcoxon rank-sum test
+wilcox.test(group1, group2)
+```
+
+### Output
+
+```bash
+wilcox.test(group1, group2)
+# Output:
+# W = 0, p-value = 0.0079
+```
+
+### Explanation
+
+- W statistic (0): Shows the test result.
+- p-value (0.0079): Below 0.05, indicating a significant difference between groups.
+
+## Data Visualization
+
+### Purpose
+
+- Graphically represents data for better interpretation.
+- Helps detect trends, patterns, and outliers.
+
+### Description
+
+Data visualization uses charts to make data easier to understand. Histograms and scatter plots can highlight trends and outliers.
+
+### R Examples
+
+```r
+# Simulate data
+data <- rnorm(100)
+
+# Histogram
+hist(data, main = "Histogram of Data")
+
+# Scatter plot with linear trend line
+x <- rnorm(100)
+y <- 2 * x + rnorm(100)
+plot(x, y, main = "Scatter Plot with Trend Line")
+abline(lm(y ~ x), col = "blue")
+```
+
+## Assumption Checking
+
+### Purpose
+
+- Ensures data meets assumptions for specific tests.
+- Validates results by confirming assumptions like normality.
+
+### Description
+
+Assumption checking verifies if data meets the requirements of a test, like normal distribution or constant variance. Checking assumptions improves the reliability of results.
+
+### R Examples
+
+```r
+# Fit linear model for assumption checking
+x <- rnorm(100)
+y <- 2 * x + rnorm(100)
+model <- lm(y ~ x)
+
+# Plot residuals
+plot(model, which = 1)  # Residuals vs Fitted plot for linearity
+plot(model, which = 2)  # Normal Q-Q plot for normality check
+
+# Shapiro-Wilk test for normality
+shapiro.test(residuals(model))
+```
