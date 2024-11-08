@@ -1,3 +1,17 @@
+# Understanding R Statistical Models
+
+## Contents
+
+- [Descriptive Statistics](#descriptive-statistics)
+- [t-Tests](#t-tests)
+- [Analysis of Variance (ANOVA)](#analysis-of-variance-anova)
+- [Linear Regression](#linear-regression)
+- [Correlation](#correlation)
+- [Chi-Squared Test](#chi-squared-test)
+- [Non-Parametric Tests](#non-parametric-tests)
+- [Data Visualization](#data-visualization)
+- [Assumption Checking](#assumption-checking)
+
 ## Descriptive Statistics
 
 ### Purpose
